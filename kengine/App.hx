@@ -1,5 +1,6 @@
 package kengine;
 
+import kha.Color;
 import kha.Framebuffer;
 import kha.Scheduler;
 import kha.System;
@@ -27,8 +28,7 @@ class App
 	}
 
 	function render(framebuffer: Framebuffer): Void {
-		framebuffer.g2.clear();
-		framebuffer.g2.begin();
+		framebuffer.g2.begin(true, Color.Black);
 		scene.render(framebuffer);
 		framebuffer.g2.end();
 		
