@@ -11,5 +11,5 @@ before_script:
 
 script:
   - yes | haxelib install all
-  - haxlib install hamcrest
-  - haxelib run munit test
+  - haxelib install hxcpp
+  - haxelib run munit test -cpp

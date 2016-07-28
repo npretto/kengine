@@ -25,7 +25,6 @@
 ## JavaScript
 -main TestMain
 -lib munit
--lib hamcrest
 -cp kengine
 
 -cp test
@@ -42,16 +41,16 @@
 -cp test
 -neko build/neko_test.n
 
-#--next
+--next
 
 ## CPP
-#-main TestMain
-#-lib munit
-#-lib hamcrest
-#-cp kengine
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp kengine
 
-#-cp test
-#-D HXCPP_M64
-#-cpp build/cpp_test
+-cp test
+-D HXCPP_M64
+-cpp build/cpp_test
 
 
