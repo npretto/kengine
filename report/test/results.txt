@@ -1,3 +1,0 @@
-Tests PASSED under neko using summary client
-Tests PASSED under js using summary client
-END
