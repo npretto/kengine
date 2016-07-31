@@ -16,7 +16,7 @@ before_script:
   - echo "git" > .current
 
 script:
-  - pwd
+  - cd ~/build/npretto/kengine
   - yes | haxelib install all
 #  - rm build/html5/kha.js
 #  - khamake html5
