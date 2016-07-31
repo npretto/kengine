@@ -1,31 +1,19 @@
-language: nodejs
-
+sudo: false
+os:
+  - linux
+  - osx
+addons:
+  apt:
+    packages:
+      - libasound2-dev
+language: cpp
+compiler:
+  - gcc
+  - clang
 before_script:
-  - pwd
-  - sudo apt-get update
-  - sudo apt-get install python-software-properties -y # for the next command
-  - sudo add-apt-repository ppa:eyecreate/haxe -y
-  - sudo apt-get update
-  - sudo apt-get install haxe -y
-  - mkdir ~/haxelib
-  - haxelib setup ~/haxelib
-  - cd ~/haxelib
-  - mkdir kha && cd kha
-  - git clone --recursive https://github.com/KTXSoftware/Kha.git
-  - mv Kha git
-  - echo "git" > .current
-  - haxelib list
-  - ls ~/haxelib
-  - ls ~/haxelib/kha
-  - ls -al ~/haxelib/kha/git
-  - node --version
-
-
-script:
-  - cd ~/build/npretto/kengine
-  - yes | haxelib install all
-#  - rm build/html5/kha.js
-  - node ~/haxelib/kha/git/make.js --help
-  - node ~/haxelib/kha/git/make.js
-  - node ~/haxelib/kha/git/make.js html5
-  - node build/html5/kha.js
+  - git submodule update --init --recursive
+  - git clone https://github.com/ktxsoftware/nodejs_bin.git
+  - git clone https://github.com/ktxsoftware/kha.git
+  - nodejs_bin/copysysbin.sh
+script: 
+  - nodejs_bin/node kha/make.js html5 --kha Kha/ --from . --compile
