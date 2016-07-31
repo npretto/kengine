@@ -12,7 +12,7 @@ compiler:
 #  - clang
 before_script:
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
-  - git clone https://github.com/ktxsoftware/kha.git
+  - git clone --recursive https://github.com/ktxsoftware/kha.git
   - find .
   - nodejs_bin/copysysbin.sh
 script: 
