@@ -1,6 +1,7 @@
 language: nodejs
 
 before_script:
+  - pwd
   - sudo apt-get update
   - sudo apt-get install python-software-properties -y # for the next command
   - sudo add-apt-repository ppa:eyecreate/haxe -y
