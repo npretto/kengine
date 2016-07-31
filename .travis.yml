@@ -1,5 +1,4 @@
 sudo: false
-language: nodejs
 os:
   - linux
  # - osx
@@ -12,10 +11,10 @@ compiler:
   - gcc
 #  - clang
 before_script:
-#  - git clone https://github.com/ktxsoftware/nodejs_bin.git
+  - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone --recursive https://github.com/ktxsoftware/kha.git
   - find .
-#  - nodejs_bin/copysysbin.sh
+  - nodejs_bin/copysysbin.sh
 script: 
-  - node kha/make.js --from tests/ . --to tests/kha-build -t html5
-  - node build/html5/kha.js
+  - nodejs_bin/node kha/make.js --from tests/ . --to tests/kha-build -t html5
+  - nodejs_bin/node build/html5/kha.js
