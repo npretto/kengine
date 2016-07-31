@@ -26,6 +26,6 @@ script:
   - yes | haxelib install all
 #  - rm build/html5/kha.js
   - node ~/haxelib/kha/git/make.js --help
-  - node ~/haxelib/kha/git/make.js
-  - node ~/haxelib/kha/git/make.js html5
+  - sudo node ~/haxelib/kha/git/make.js
+  - sudo node ~/haxelib/kha/git/make.js html5
   - node build/html5/kha.js
