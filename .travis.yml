@@ -1,7 +1,7 @@
 sudo: false
 os:
   - linux
-  - osx
+ # - osx
 addons:
   apt:
     packages:
@@ -9,11 +9,11 @@ addons:
 language: cpp
 compiler:
   - gcc
-  - clang
+#  - clang
 before_script:
   - git submodule update --init --recursive
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone https://github.com/ktxsoftware/kha.git
   - nodejs_bin/copysysbin.sh
 script: 
-  - nodejs_bin/node kha/make.js html5 --kha Kha/ --from . --compile
+  - nodejs_bin/node kha/make.js html5 --from . --compile
