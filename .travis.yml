@@ -17,13 +17,14 @@ before_script:
   - haxelib list
   - ls ~/haxelib
   - ls ~/haxelib/kha
-  - ls ~/haxelib/kha/git
+  - ls -al ~/haxelib/kha/git
 
 
 script:
   - cd ~/build/npretto/kengine
   - yes | haxelib install all
 #  - rm build/html5/kha.js
-#  - khamake html5
-  - node debug ~/haxelib/kha/git/make html5
+  - alias khamake="node ~/haxelib/kha/git/make"
+  - khamake html5
+  #- node ~/haxelib/kha/git/make html5
   - node build/html5/kha.js
