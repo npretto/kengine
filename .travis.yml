@@ -1,4 +1,4 @@
-language: cpp
+language: nodejs
 
 before_script:
   - sudo apt-get update
@@ -11,5 +11,6 @@ before_script:
 
 script:
   - yes | haxelib install all
-  - haxelib install hxcpp
-  - ./tests/run_tests.sh
+#  - rm build/html5/kha.js
+  - khamake html5
+  - node build/html5/kha.js
