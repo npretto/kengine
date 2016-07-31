@@ -25,5 +25,7 @@ script:
   - cd ~/build/npretto/kengine
   - yes | haxelib install all
 #  - rm build/html5/kha.js
-  - node ~/haxelib/kha/git/make html5
+  - node ~/haxelib/kha/git/make.js --help
+  - node ~/haxelib/kha/git/make.js
+  - node ~/haxelib/kha/git/make.js html5
   - node build/html5/kha.js
