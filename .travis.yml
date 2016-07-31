@@ -12,4 +12,5 @@ before_script:
 script:
   - yes | haxelib install all
   - haxelib install hxcpp
-  - haxelib run munit test -cpp
+  - cd tests/
+  - ./run-tests.sh
