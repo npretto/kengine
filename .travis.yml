@@ -12,5 +12,4 @@ before_script:
 script:
   - yes | haxelib install all
   - haxelib install hxcpp
-  - cd tests/
-  - ./run-tests.sh
+  - ./tests/run_tests.sh
