@@ -18,6 +18,7 @@ before_script:
   - ls ~/haxelib
   - ls ~/haxelib/kha
   - ls -al ~/haxelib/kha/git
+  - node --version
 
 
 script:
