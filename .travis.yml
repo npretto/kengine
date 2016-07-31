@@ -14,11 +14,16 @@ before_script:
   - git clone --recursive https://github.com/KTXSoftware/Kha.git
   - mv Kha git
   - echo "git" > .current
+  - haxelib list
+  - ls ~/haxelib
+  - ls ~/haxelib/kha
+  - ls ~/haxelib/kha/git
+
 
 script:
   - cd ~/build/npretto/kengine
   - yes | haxelib install all
 #  - rm build/html5/kha.js
 #  - khamake html5
-  - node ~/haxelib/kha/git/make html5
+  - node debug ~/haxelib/kha/git/make html5
   - node build/html5/kha.js
