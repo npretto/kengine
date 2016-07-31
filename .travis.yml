@@ -8,9 +8,15 @@ before_script:
   - sudo apt-get install haxe -y
   - mkdir ~/haxelib
   - haxelib setup ~/haxelib
+  - cd ~/haxelib
+  - mkdir kha && cd kha
+  - git clone --recursive https://github.com/KTXSoftware/Kha.git
+  - mv Kha git
+  - echo "git" > .current
 
 script:
   - yes | haxelib install all
 #  - rm build/html5/kha.js
-  - khamake html5
+#  - khamake html5
+  - node ~/haxelib/kha/git/make html5
   - node build/html5/kha.js
