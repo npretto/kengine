@@ -1,4 +1,12 @@
 sudo: false
+language: haxe
+haxe:
+  - "3.2.0"
+  - development
+neko: "2.0.0"
+matrix:
+  allow_failures:
+    - haxe: development # Allow development to fail until I have time to investigate.
 os:
   - linux
  # - osx
@@ -6,21 +14,13 @@ addons:
   apt:
     packages:
       - libasound2-dev
-haxe:
-  - "3.3.0"
-  - development
-neko: "2.0.0"
-matrix:
-  allow_failures:
-    - haxe: development 
-compiler:
-  - gcc
-#  - clang
+install:
+  - haxelib install utest
 before_script:
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone --recursive https://github.com/ktxsoftware/kha.git
   - nodejs_bin/copysysbin.sh
-  - haxelib install utest
+
 script: 
   - nodejs_bin/node kha/make.js --from tests/ . --to tests/build -t html5
   - nodejs_bin/node tests/build/html5/kha.js
