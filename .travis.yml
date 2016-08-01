@@ -19,6 +19,7 @@ install:
   - haxelib list
   - haxelib config
   - find /home/travis/haxe/lib
+  - printenv
 before_script:
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone --recursive https://github.com/ktxsoftware/kha.git
