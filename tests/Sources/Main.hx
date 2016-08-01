@@ -1,16 +1,14 @@
 package;
 
 import kha.System;
+import utest.ui.Report;
 
 class Main {
 	static function main() 
 	{
-		var runner = new haxe.unit.TestRunner();
-        runner.add(new TestEntity());
-        var success = runner.run();
-
-        #if sys
-        Sys.exit(success ? 0 : 1);
-        #end
+		var runner = new utest.Runner();
+        runner.addCase(new TestEntity());
+		Report.create(runner);
+        runner.run();
 	}
 }
