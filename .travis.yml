@@ -1,6 +1,6 @@
 sudo: false
 language: haxe
-haxe: # without --haxe ~/haxe this should be ignored
+haxe: # without --haxe ~/haxe this should be ignored, i just need it for haxelib
   - "3.3.0"
   - development
 neko: "2.0.0"
@@ -15,7 +15,8 @@ addons:
     packages:
       - libasound2-dev
 install:
-  - haxelib install utest
+  - yes | haxelib install utest
+  - haxelib list
 before_script:
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone --recursive https://github.com/ktxsoftware/kha.git
@@ -23,5 +24,5 @@ before_script:
 
 script: 
   - nodejs_bin/node kha/make.js --from tests/ --to tests/build -t html5
-  - tests/build/project-html5.hxml
+  - cat tests/build/project-html5.hxml
   - nodejs_bin/node tests/build/html5/kha.js
