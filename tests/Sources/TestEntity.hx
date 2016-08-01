@@ -18,7 +18,8 @@ class TestEntity extends TestCase
 		var child = new Entity();
 		child.pos = new Vector2(100, 100);
 		father.addChild(child);
-		assertEquals(new Vector2(150, 150), child.worldPos);
+		assertEquals(new Vector2(150, 150).x, child.worldPos.x);
+		assertEquals(new Vector2(150, 150).y, child.worldPos.y);
 	}
 	
 }
