@@ -13,7 +13,7 @@ class Entity
 	var children:List<Entity> = new List();
 	var components : List<Component> = new List();
 	var parent:Entity = null;
-	var pos:Vector2 = new Vector2();
+	public var pos:Vector2 = new Vector2();
 	public var worldPos(get, null):Vector2;
 	public var rotation : Float; // degrees
 	
