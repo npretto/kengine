@@ -7,9 +7,8 @@ haxe: # without --haxe ~/haxe this should be ignored, i just need it for haxelib
 neko: "2.0.0"
 matrix:
   allow_failures:
-    - haxe: 
-      - development # Allow development to fail until I have time to investigate.
-      - "3.3.0" #for some reason this doesn't even install
+    - haxe: development # Allow development to fail until I have time to investigate.
+    - haxe: "3.3.0" #for some reason this doesn't even install
 os:
   - linux
  # - osx
