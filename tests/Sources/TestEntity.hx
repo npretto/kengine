@@ -19,7 +19,7 @@ class TestEntity extends TestCase
 		child.pos = new Vector2(100, 100);
 		father.addChild(child);
 		assertEquals(new Vector2(150, 150).x, child.worldPos.x);
-		assertEquals(new Vector2(150, 150).y, child.worldPos.y);
+		assertEquals(new Vector2(150, 151).y, child.worldPos.y);
 	}
 	
 }
