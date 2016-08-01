@@ -17,6 +17,7 @@ addons:
 install:
   - yes | haxelib install utest
   - haxelib list
+  - haxelib config
 before_script:
   - git clone https://github.com/ktxsoftware/nodejs_bin.git
   - git clone --recursive https://github.com/ktxsoftware/kha.git
