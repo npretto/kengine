@@ -16,5 +16,5 @@ before_script:
   - find .
   - nodejs_bin/copysysbin.sh
 script: 
-  - nodejs_bin/node kha/make.js --from tests/ . --to tests/kha-build -t html5
+  - nodejs_bin/node kha/make.js --from tests/ . --to tests/build -t html5
   - nodejs_bin/node tests/build/html5/kha.js
