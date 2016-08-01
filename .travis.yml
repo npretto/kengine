@@ -10,6 +10,8 @@ matrix:
 os:
   - linux
  # - osx
+env:
+ - HAXEPATH=/home/travis/haxe #for some reason this isn't set by the haxe installation
 addons:
   apt:
     packages:
