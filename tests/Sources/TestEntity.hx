@@ -21,8 +21,8 @@ class TestEntity {
 		child.pos = new Vector2(100, 100);
 		father.addChild(child);
 		Assert.equals(new Vector2(150, 150).x, child.worldPos.x);
-		Assert.equals(new Vector2(150, 151).y, child.worldPos.y);
-		Assert.fail("blabla");
+		Assert.equals(new Vector2(150, 150).y, child.worldPos.y);
+		//Assert.fail("blabla");
 	}
 	
 }
