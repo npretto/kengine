@@ -3,5 +3,4 @@ project.addAssets('Assets/**');
 project.addSources('Sources');
 project.addSources('../');
 project.addLibrary("utest");
-// resolve(project);
-return project;
+resolve(project);
