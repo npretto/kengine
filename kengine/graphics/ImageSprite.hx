@@ -30,7 +30,7 @@ class ImageSprite extends Drawable
 		//frameBuffer.g2.transformation = FastMatrix3.translation(offset.x, offset.y);
 		frameBuffer.g2.transformation = FastMatrix3.translation(0, 0);
 		// rotation
-		frameBuffer.g2.rotate(owner.rotation, owner.worldPos.x + size.x/2, owner.worldPos.y + size.y/2);
+		frameBuffer.g2.rotate(MathTools.toRadians(owner.rotation), owner.worldPos.x + offset.x, owner.worldPos.y + offset.y);
 		
 		// draw the image scaled
 		frameBuffer.g2.drawScaledImage(image, owner.worldPos.x, owner.worldPos.y, size.x * scale.x, size.y * scale.y);
