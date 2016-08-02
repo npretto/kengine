@@ -14,11 +14,10 @@ import kha.math.Vector2;
  */
 class ImageSprite extends Drawable
 {	
-	public function new(image: Image, offset: Vector2 = null, flipX: Bool = false, filpY: Bool = false, scale: Vector2 = null) 
+	public function new(image: Image, flipX: Bool = false, flipY: Bool = false, scale: Vector2 = null) 
 	{
 		super();
 		this.image = image;
-		if (offset == null) this.offset = new Vector2(0, 0);
 		if (scale == null) this.scale = new Vector2(1, 1);
 	}
 	
@@ -27,11 +26,9 @@ class ImageSprite extends Drawable
 		super.render(frameBuffer);
 
 		// reset the transformation matrix, that will be used by drawImage
-		//frameBuffer.g2.transformation = FastMatrix3.translation(offset.x, offset.y);
 		frameBuffer.g2.transformation = FastMatrix3.translation(0, 0);
 		// rotation
-		frameBuffer.g2.rotate(owner.rotation, owner.worldPos.x + size.x/2, owner.worldPos.y + size.y/2);
-		
+		frameBuffer.g2.rotate(owner.rotation, owner.worldPos.x + size.x/2 + owner.rotationCenter.x , owner.worldPos.y + size.y/2 + owner.rotationCenter.y);
 		// draw the image scaled
 		frameBuffer.g2.drawScaledImage(image, owner.worldPos.x, owner.worldPos.y, size.x * scale.x, size.y * scale.y);
 	}

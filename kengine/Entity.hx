@@ -16,6 +16,7 @@ class Entity
 	public var pos:Vector2 = new Vector2();
 	public var worldPos(get, null):Vector2;
 	public var rotation : Float; // degrees
+	public var rotationCenter : Vector2 = new Vector2(0, 0);
 	
 	public var name:String = "";
 

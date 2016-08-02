@@ -10,7 +10,6 @@ import kha.math.Vector2;
  */
 class Drawable extends Component
 {
-	public var offset : Vector2;
 	public var flipX : Bool;
 	public var flipY : Bool;
 	public var scale : Vector2;
