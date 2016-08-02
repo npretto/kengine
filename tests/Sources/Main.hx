@@ -8,6 +8,7 @@ class Main {
 	{
 		var runner = new utest.Runner();
         runner.addCase(new TestEntity());
+		runner.addCase(new TestMathTools());
 		Report.create(runner);
         runner.run();
 	}

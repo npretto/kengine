@@ -1,7 +1,10 @@
 package kengine;
 import kengine.Component;
 import kha.Framebuffer;
+import kha.math.FastMatrix4;
 import kha.math.Vector2;
+
+using kengine.MathTools;
 
 /**
  * ...
@@ -15,13 +18,20 @@ class Entity
 	var parent:Entity = null;
 	public var pos:Vector2 = new Vector2();
 	public var worldPos(get, null):Vector2;
-	public var rotation : Float; // degrees
+	public var rotation : Float = 0; // degrees
+	public var worldRotation(get, null):Float;
 	
 	public var name:String = "";
 
 	public function new() 
 	{
 		
+	}
+	
+	public function setName(name:String):Entity
+	{
+		this.name = name;
+		return this;
 	}
 	
 	function onAdded()
@@ -77,7 +87,17 @@ class Entity
 		{
 			return pos;
 		}else{
-			return parent.worldPos.add(pos);
+			return parent.worldPos.add(pos.rotate(parent.worldRotation));
+		}
+	}
+	
+	private function get_worldRotation():Float
+	{
+		if (parent == null)
+		{
+			return rotation;
+		}else{
+			return (parent.rotation+rotation)%360;
 		}
 	}
 	
