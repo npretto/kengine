@@ -36,7 +36,7 @@ class Gamepad
 			g.drawString('Axis $i:  ${axis[i]}',10,35*i);
 		}
 
-				for(i in 0...axis.length)
+		for(i in 0...buttons.length)
 		{
 			g.drawString('Button $i:  ${buttons[i]}',510,40*i);
 		}
