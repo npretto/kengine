@@ -23,9 +23,4 @@ class Drawable extends Component
 	{
 		return null;
 	}
-	
-	public function get_realSize() : Vector2
-	{
-		return null;
-	}
 }

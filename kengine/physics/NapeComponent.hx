@@ -26,13 +26,24 @@ class NapeComponent extends Component
 	override public function onAdded() 
 	{
 		super.onAdded();
-		// remove  the body from the space because static objects 
-		// cannot be moved while inside one
-		var tmpSpace = body.space;
-		body.space = null;
-		body.position.setxy(owner.worldPos.x, owner.worldPos.y);
-		body.rotation = MathTools.toRadians(owner.rotation);
-		body.space = tmpSpace;
+		if (body.compound == null) // check if we are in a compound to remove the right space
+		{
+			// remove  the body from the space because static objects 
+			// cannot be moved while inside one
+			var tmpSpace = body.space;
+			body.space = null;
+			body.position.setxy(owner.worldPos.x, owner.worldPos.y);
+			body.rotation = MathTools.toRadians(owner.rotation);
+			body.space = tmpSpace;
+		}
+		else
+		{
+			var tmpSpace = body.compound.space;
+			body.compound.space = null;
+			body.position.setxy(owner.worldPos.x, owner.worldPos.y);
+			body.rotation = MathTools.toRadians(owner.rotation);
+			body.compound.space = tmpSpace;
+		}
 	}
 	
 }
