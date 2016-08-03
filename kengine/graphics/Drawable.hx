@@ -15,7 +15,6 @@ class Drawable extends Component
 	public var flipY : Bool;
 	public var scale : Vector2;
 	public var size(get, null) : Vector2;
-	public var realSize(get, null) : Vector2;
 	var image : Image;
 	
 	public function new() {	super(); }

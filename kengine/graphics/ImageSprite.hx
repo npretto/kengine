@@ -9,10 +9,6 @@ import kha.Scaler;
 import kha.math.FastMatrix3;
 import kha.math.Vector2;
 
-/**
- * ...
- * @author Alessandro Bertoldi
- */
 class ImageSprite extends Drawable
 {	
 	public function new(image: Image, offset: Vector2 = null, flipX: Bool = false, filpY: Bool = false, scale: Vector2 = null) 
@@ -40,10 +36,5 @@ class ImageSprite extends Drawable
 	override public function get_size() : Vector2
 	{
 		return new Vector2(image.width, image.height);
-	}
-	
-	override public function get_realSize() : Vector2
-	{
-		return new Vector2(image.realWidth, image.realHeight);
 	}
 }
