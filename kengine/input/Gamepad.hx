@@ -1,22 +1,42 @@
 package kengine.input;
+import kengine.input.Stick;
+import kha.Color;
 import kha.Framebuffer;
 import kha.Assets;
 import kha.Font;
+import kha.graphics2.Graphics;
+
+using kha.graphics2.GraphicsExtension;
 
 class Gamepad
 {
 	
-	public var axis:Array<Float> = new Array();
+	//public var axis:Array<Button> = new Array();
 	public var buttons:Array<Float> = new Array();
+	public var leftStick:Stick;
+	public var rightStick:Stick;
+	public var invertAxis:Bool = false;
 
-	public function new(n:Int)
+	public function new(?n:Int=0)
 	{
+		leftStick = new Stick();
+		rightStick = new Stick();
 		kha.input.Gamepad.get(n).notify(onGamepadAxis,onButton);
 	}
 	
 	private function onGamepadAxis(axis:Int, value:Float):Void
 	{
-		this.axis[axis]=value;
+		switch(axis)
+		{
+			case 0:
+				leftStick.setAxis(0,value);
+			case 1:
+				leftStick.setAxis(1,invertAxis ? - value : value);
+			case 2:
+				rightStick.setAxis(0,value);
+			case 3:
+				rightStick.setAxis(1,invertAxis ? - value : value);
+		}
 	}
 	
 	private function onButton(btn:Int, value:Float):Void
@@ -28,13 +48,11 @@ class Gamepad
 	{
 		var g = framebuffer.g2;
 		g.begin();
-		trace(Assets.fonts.OpenSans);
 		g.font = font;
 		g.fontSize = 48;
-		for(i in 0...axis.length)
-		{
-			g.drawString('Axis $i:  ${axis[i]}',10,35*i);
-		}
+		
+		drawStick(framebuffer.g2,leftStick, 120, 300, 50);
+		drawStick(framebuffer.g2,rightStick, 250, 300, 50);
 
 		for(i in 0...buttons.length)
 		{
@@ -43,5 +61,16 @@ class Gamepad
 		
 		g.end();
 	}
+	
+	function drawStick(g2:Graphics, stick:Stick, cx:Float, cy:Float, r:Float) 
+	{
+		g2.drawCircle(cx, cy, r);
+		g2.color = Color.Blue;
+		g2.fillCircle(cx + stick.value.x * r, cy - stick.value.y * r, r/3);
+		g2.color = Color.White;
+		g2.drawString('(${(""+stick.value.x).substring(0,4)},${(""+stick.value.y).substring(0,4)})', cx - r, cy + r + 10);
+	}
+	
+
 	
 }

@@ -1,6 +1,6 @@
 package kengine;
+
 import kha.math.Matrix2;
-import kha.math.Matrix4;
 import kha.math.Vector2;
 
 /**
@@ -26,5 +26,12 @@ class MathTools
 		var cos = Math.cos(toRadians(degree));
 		var m = new Matrix2(cos, -sin, sin, cos);
 		return m.multvec(vec);
+	}
+	
+	public static inline function normalizedCopy(v:Vector2):Vector2
+	{
+		var a = new Vector2(v.x, v.y);
+		a.normalize();
+		return a;
 	}
 }
