@@ -40,7 +40,7 @@ class Stick
 	
 	public function get_value():Vector2
 	{
-		return raw.normalizedCopy();
+		return raw; //should maybe limit it
 	}
 	
 }
