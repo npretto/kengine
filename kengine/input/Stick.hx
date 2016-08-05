@@ -40,7 +40,8 @@ class Stick
 	
 	public function get_value():Vector2
 	{
-		return raw; //should maybe limit it
+		return new Vector2(raw.x * Math.sqrt(1 - 0.5 * Math.pow(raw.y, 2)),
+						   raw.y * Math.sqrt(1 - 0.5 * Math.pow(raw.x, 2)));
 	}
 	
 }
