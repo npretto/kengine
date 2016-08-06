@@ -18,6 +18,12 @@ class TestScene extends Scene
 		//pad.invertAxis = true;
 	}
 	
+	override public function update()
+	{
+		super.update();
+		pad.update();
+	}
+	
 	override public function render(framebuffer:Framebuffer) 
 	{
 		super.render(framebuffer);
