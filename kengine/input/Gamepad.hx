@@ -103,7 +103,6 @@ class Gamepad
 	public function renderDebug(framebuffer:Framebuffer, font:Font) 
 	{
 		var g = framebuffer.g2;
-		g.begin();
 		g.font = font;
 		g.fontSize = 24;
 		
@@ -116,8 +115,6 @@ class Gamepad
 			g.color = btn.down ? Color.Red : Color.White;
 			g.drawString('Button ${btn.name}',20,25*i++);
 		}
-		
-		g.end();
 	}
 	
 	function drawStick(g2:Graphics, stick:Stick, cx:Float, cy:Float, r:Float) 

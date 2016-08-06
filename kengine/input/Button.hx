@@ -34,7 +34,7 @@ class Button
 	/**
 	 * This private method is used by gamepad to change the value of `down` without making the variable writable
 	 */
-	@:allow(kengine.input.Gamepad)
+	@:allow(kengine.input)
 	private function setValue(v:Bool)
 	{
 		if (down == false && v == true)
