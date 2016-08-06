@@ -6,48 +6,48 @@ import kha.Key;
 
 class Keyboard
 {
-	public var buttons:Array<Button>;
+	public var buttons:Array<DeviceButton>;
 	
-	public var Q:Button = new Button("Q");
-	public var W:Button = new Button("W");
-	public var E:Button = new Button("E");
-	public var R:Button = new Button("R");
-	public var T:Button = new Button("T");
-	public var Y:Button = new Button("Y");
-	public var U:Button = new Button("U");
-	public var I:Button = new Button("I");
-	public var O:Button = new Button("O");
-	public var P:Button = new Button("P");
-	public var A:Button = new Button("A");
-	public var S:Button = new Button("S");
-	public var D:Button = new Button("D");
-	public var F:Button = new Button("F");
-	public var G:Button = new Button("G");
-	public var H:Button = new Button("H");
-	public var J:Button = new Button("J");
-	public var K:Button = new Button("K");
-	public var L:Button = new Button("L");
-	public var Z:Button = new Button("Z");
-	public var X:Button = new Button("X");
-	public var C:Button = new Button("C");
-	public var V:Button = new Button("V");
-	public var B:Button = new Button("B");
-	public var N:Button = new Button("N");
-	public var M:Button = new Button("M");
-	public var BACKSPACE:Button = new Button("BACKSPACE");
-	public var TAB:Button = new Button("TAB");
-	public var ENTER:Button = new Button("ENTER");
-	public var SHIFT:Button = new Button("SHIFT");
-	public var CTRL:Button = new Button("CTRL");
-	public var ALT:Button = new Button("ALT");
-	public var CHAR:Button = new Button("CHAR");
-	public var ESC:Button = new Button("ESC");
-	public var DEL:Button = new Button("DEL");
-	public var UP:Button = new Button("UP");
-	public var DOWN:Button = new Button("DOWN");
-	public var LEFT:Button = new Button("LEFT");
-	public var RIGHT:Button = new Button("RIGHT");
-	public var BACK:Button = new Button("BACK");
+	public var Q:DeviceButton = new DeviceButton("Q");
+	public var W:DeviceButton = new DeviceButton("W");
+	public var E:DeviceButton = new DeviceButton("E");
+	public var R:DeviceButton = new DeviceButton("R");
+	public var T:DeviceButton = new DeviceButton("T");
+	public var Y:DeviceButton = new DeviceButton("Y");
+	public var U:DeviceButton = new DeviceButton("U");
+	public var I:DeviceButton = new DeviceButton("I");
+	public var O:DeviceButton = new DeviceButton("O");
+	public var P:DeviceButton = new DeviceButton("P");
+	public var A:DeviceButton = new DeviceButton("A");
+	public var S:DeviceButton = new DeviceButton("S");
+	public var D:DeviceButton = new DeviceButton("D");
+	public var F:DeviceButton = new DeviceButton("F");
+	public var G:DeviceButton = new DeviceButton("G");
+	public var H:DeviceButton = new DeviceButton("H");
+	public var J:DeviceButton = new DeviceButton("J");
+	public var K:DeviceButton = new DeviceButton("K");
+	public var L:DeviceButton = new DeviceButton("L");
+	public var Z:DeviceButton = new DeviceButton("Z");
+	public var X:DeviceButton = new DeviceButton("X");
+	public var C:DeviceButton = new DeviceButton("C");
+	public var V:DeviceButton = new DeviceButton("V");
+	public var B:DeviceButton = new DeviceButton("B");
+	public var N:DeviceButton = new DeviceButton("N");
+	public var M:DeviceButton = new DeviceButton("M");
+	public var BACKSPACE:DeviceButton = new DeviceButton("BACKSPACE");
+	public var TAB:DeviceButton = new DeviceButton("TAB");
+	public var ENTER:DeviceButton = new DeviceButton("ENTER");
+	public var SHIFT:DeviceButton = new DeviceButton("SHIFT");
+	public var CTRL:DeviceButton = new DeviceButton("CTRL");
+	public var ALT:DeviceButton = new DeviceButton("ALT");
+	public var CHAR:DeviceButton = new DeviceButton("CHAR");
+	public var ESC:DeviceButton = new DeviceButton("ESC");
+	public var DEL:DeviceButton = new DeviceButton("DEL");
+	public var UP:DeviceButton = new DeviceButton("UP");
+	public var DOWN:DeviceButton = new DeviceButton("DOWN");
+	public var LEFT:DeviceButton = new DeviceButton("LEFT");
+	public var RIGHT:DeviceButton = new DeviceButton("RIGHT");
+	public var BACK:DeviceButton = new DeviceButton("BACK");
 	
 
 
@@ -163,7 +163,7 @@ class Keyboard
 		}
 	}
 		
-	private inline function updateButton(btn:Button, value:Float) 
+	private inline function updateButton(btn:DeviceButton, value:Float) 
 	{
 		btn.setValue(value > 0.5);
 	}

@@ -1,8 +1,11 @@
 package;
 import kengine.Scene;
 import kengine.input.Button;
+import kengine.input.DeviceButton;
+import kengine.input.EitherButton;
 import kengine.input.Gamepad;
 import kengine.input.Keyboard;
+import kha.Color;
 import kha.Framebuffer;
 
 /**
@@ -13,6 +16,7 @@ class TestScene extends Scene
 {
 	var pad:kengine.input.Gamepad;
 	var keyboard:kengine.input.Keyboard;
+	var customButton:Button;
 
 	public function new() 
 	{
@@ -20,6 +24,8 @@ class TestScene extends Scene
 		pad = new Gamepad(0);
 		//pad.invertAxis = true;
 		keyboard = new Keyboard(0);
+		
+		customButton = new EitherButton("jumpButton", [keyboard.UP, keyboard.W, pad.D_UP]);
 	}
 	
 	override public function update()
@@ -29,6 +35,9 @@ class TestScene extends Scene
 			print(btn);
 		for (btn in keyboard.buttons)
 			print(btn);
+			
+		print(customButton);
+		
 		pad.update();
 		keyboard.update();
 	}
@@ -46,6 +55,9 @@ class TestScene extends Scene
 		super.render(framebuffer);
 		pad.renderDebug(framebuffer, kha.Assets.fonts.OpenSans);
 		keyboard.renderDebug(framebuffer, kha.Assets.fonts.OpenSans);
+		
+		framebuffer.g2.color = customButton.down ? Color.Red : Color.White;
+		framebuffer.g2.drawString(customButton.name, 240, 300);
 	}
 	
 }

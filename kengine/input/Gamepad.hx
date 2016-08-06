@@ -1,5 +1,5 @@
 package kengine.input;
-import kengine.input.Button;
+import kengine.input.DeviceButton;
 import kengine.input.Stick;
 import kha.Color;
 import kha.Framebuffer;
@@ -15,23 +15,23 @@ class Gamepad
 	public var rightStick:Stick;
 	public var invertAxis:Bool = false;
 	
-	public var A:Button = new Button("A");
-	public var B:Button = new Button("B");
-	public var X:Button = new Button("X");
-	public var Y:Button = new Button("Y");
-	public var L1:Button = new Button("L1");
-	public var R1:Button = new Button("R1");
-	public var L2:Button = new Button("L2");
-	public var R2:Button = new Button("R2");
-	public var BACK:Button = new Button("BACK");
-	public var START:Button = new Button("START");
-	public var L3:Button = new Button("L3");
-	public var R3:Button = new Button("R3");
-	public var D_UP:Button = new Button("D_UP");
-	public var D_DOWN:Button = new Button("D_DOWN");
-	public var D_LEFT:Button = new Button("D_LEFT");
-	public var D_RIGHT:Button = new Button("D_RIGHT");
-	public var buttons:Array<Button>;
+	public var A:DeviceButton = new DeviceButton("A");
+	public var B:DeviceButton = new DeviceButton("B");
+	public var X:DeviceButton = new DeviceButton("X");
+	public var Y:DeviceButton = new DeviceButton("Y");
+	public var L1:DeviceButton = new DeviceButton("L1");
+	public var R1:DeviceButton = new DeviceButton("R1");
+	public var L2:DeviceButton = new DeviceButton("L2");
+	public var R2:DeviceButton = new DeviceButton("R2");
+	public var BACK:DeviceButton = new DeviceButton("BACK");
+	public var START:DeviceButton = new DeviceButton("START");
+	public var L3:DeviceButton = new DeviceButton("L3");
+	public var R3:DeviceButton = new DeviceButton("R3");
+	public var D_UP:DeviceButton = new DeviceButton("D_UP");
+	public var D_DOWN:DeviceButton = new DeviceButton("D_DOWN");
+	public var D_LEFT:DeviceButton = new DeviceButton("D_LEFT");
+	public var D_RIGHT:DeviceButton = new DeviceButton("D_RIGHT");
+	public var buttons:Array<DeviceButton>;
 
 	public function new(?n:Int=0)
 	{
@@ -95,7 +95,7 @@ class Gamepad
 		}
 	}
 	
-	private inline function updateButton(btn:Button, value:Float) 
+	private inline function updateButton(btn:DeviceButton, value:Float) 
 	{
 		btn.setValue(value > 0.5);
 	}
