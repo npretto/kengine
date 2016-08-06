@@ -34,11 +34,27 @@ class Keyboard
 	public var B:Button = new Button("B");
 	public var N:Button = new Button("N");
 	public var M:Button = new Button("M");
+	public var BACKSPACE:Button = new Button("BACKSPACE");
+	public var TAB:Button = new Button("TAB");
+	public var ENTER:Button = new Button("ENTER");
+	public var SHIFT:Button = new Button("SHIFT");
+	public var CTRL:Button = new Button("CTRL");
+	public var ALT:Button = new Button("ALT");
+	public var CHAR:Button = new Button("CHAR");
+	public var ESC:Button = new Button("ESC");
+	public var DEL:Button = new Button("DEL");
+	public var UP:Button = new Button("UP");
+	public var DOWN:Button = new Button("DOWN");
+	public var LEFT:Button = new Button("LEFT");
+	public var RIGHT:Button = new Button("RIGHT");
+	public var BACK:Button = new Button("BACK");
+	
 
 
 	public function new(?n:Int=0)
 	{
-		buttons = [Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M];
+		buttons = [Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M,
+					BACKSPACE,TAB,ENTER,SHIFT,CTRL,ALT,CHAR,ESC,DEL,UP,DOWN,LEFT,RIGHT,BACK];
 		kha.input.Keyboard.get(n).notify(onDown, onUp);
 	}
 	
@@ -110,6 +126,39 @@ class Keyboard
 					N.setValue(down);
 				case "M":
 					M.setValue(down);
+			}
+		}else
+		{
+			switch(key)
+			{
+				case BACKSPACE:
+					BACKSPACE.setValue(down);
+				case TAB:
+					TAB.setValue(down);
+				case ENTER:
+					ENTER.setValue(down);
+				case SHIFT:
+					SHIFT.setValue(down);
+				case CTRL:
+					CTRL.setValue(down);
+				case ALT:
+					ALT.setValue(down);
+				case CHAR:
+					CHAR.setValue(down);
+				case ESC:
+					ESC.setValue(down);
+				case DEL:
+					DEL.setValue(down);
+				case UP:
+					UP.setValue(down);
+				case DOWN:
+					DOWN.setValue(down);
+				case LEFT:
+					LEFT.setValue(down);
+				case RIGHT:
+					RIGHT.setValue(down);
+				case BACK:
+					BACK.setValue(down);
 			}
 		}
 	}
