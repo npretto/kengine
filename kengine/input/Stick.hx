@@ -13,8 +13,14 @@ using kengine.MathTools;
 class Stick
 {
 
-	private var raw:Vector2 = new Vector2();
+	/**
+	 * the raw value, where each axis is between -1 and 1
+	 */
+	public var raw:Vector2 = new Vector2();
 	
+	/**
+	 * "normalized" value, in which the vector is at most 1
+	 */
 	public var value(get, null):Vector2 = new Vector2();
 	
 	public var deadZone:Vector2 = new Vector2(0.05, 0.05);
