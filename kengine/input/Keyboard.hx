@@ -6,7 +6,7 @@ import kha.Key;
 
 class Keyboard
 {
-	private var buttons:Array<Button>;
+	public var buttons:Array<Button>;
 	
 	public var Q:Button = new Button("Q");
 	public var W:Button = new Button("W");

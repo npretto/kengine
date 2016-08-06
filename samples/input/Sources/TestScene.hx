@@ -1,5 +1,6 @@
 package;
 import kengine.Scene;
+import kengine.input.Button;
 import kengine.input.Gamepad;
 import kengine.input.Keyboard;
 import kha.Framebuffer;
@@ -24,7 +25,20 @@ class TestScene extends Scene
 	override public function update()
 	{
 		super.update();
+		for (btn in pad.buttons)
+			print(btn);
+		for (btn in keyboard.buttons)
+			print(btn);
 		pad.update();
+		keyboard.update();
+	}
+	
+	private inline function print(b:Button) 
+	{
+		if (b.justPressed)
+			trace('${b.name} just got pressed');
+		if (b.justReleased)
+			trace('${b.name} just got released');
 	}
 	
 	override public function render(framebuffer:Framebuffer) 

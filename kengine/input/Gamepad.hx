@@ -31,7 +31,7 @@ class Gamepad
 	public var D_DOWN:Button = new Button("D_DOWN");
 	public var D_LEFT:Button = new Button("D_LEFT");
 	public var D_RIGHT:Button = new Button("D_RIGHT");
-	private var buttons:Array<Button>;
+	public var buttons:Array<Button>;
 
 	public function new(?n:Int=0)
 	{
