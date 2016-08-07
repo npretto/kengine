@@ -9,7 +9,7 @@ import kha.graphics2.Graphics;
 
 using kha.graphics2.GraphicsExtension;
 
-class Gamepad
+class Gamepad implements InputDevice
 {
 	public var leftStick:Stick;
 	public var rightStick:Stick;
@@ -33,7 +33,17 @@ class Gamepad
 	public var D_RIGHT:DeviceButton = new DeviceButton("D_RIGHT");
 	public var buttons:Array<DeviceButton>;
 
-	public function new(?n:Int=0)
+	private static var instances:Array<Gamepad> = new Array();
+	public static function get(n: Int = 0):Gamepad
+	{
+		if (instances[n] == null)
+		{
+			return instances[n] = new Gamepad(n);
+		}
+		return instances[n];
+	}
+	
+	private function new(?n:Int=0)
 	{
 		buttons = [A, B, X, Y, L1, R1, L2, R2, BACK, START, L3, R3, D_UP, D_DOWN, D_LEFT, D_RIGHT];
 		leftStick = new Stick();
@@ -127,7 +137,7 @@ class Gamepad
 		g2.drawString('(${(""+stick.value.x).substring(0,4)},${(""+stick.value.y).substring(0,4)})', cx - r, cy + r + 10);
 	}
 	
-	public function update()
+	public function update():Void
 	{
 		//trace("gamepad:update()");
 		for (btn in buttons)

@@ -21,9 +21,9 @@ class TestScene extends Scene
 	public function new() 
 	{
 		super();
-		pad = new Gamepad(0);
+		pad = Gamepad.get();
 		//pad.invertAxis = true;
-		keyboard = new Keyboard(0);
+		keyboard = Keyboard.get();
 		
 		customButton = new EitherButton("jumpButton", [keyboard.UP, keyboard.W, pad.D_UP]);
 	}
@@ -37,9 +37,6 @@ class TestScene extends Scene
 			print(btn);
 			
 		print(customButton);
-		
-		pad.update();
-		keyboard.update();
 	}
 	
 	private inline function print(b:Button) 

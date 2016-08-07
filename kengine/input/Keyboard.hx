@@ -4,7 +4,7 @@ import kha.Font;
 import kha.Framebuffer;
 import kha.Key;
 
-class Keyboard
+class Keyboard implements InputDevice
 {
 	public var buttons:Array<DeviceButton>;
 	
@@ -48,10 +48,18 @@ class Keyboard
 	public var LEFT:DeviceButton = new DeviceButton("LEFT");
 	public var RIGHT:DeviceButton = new DeviceButton("RIGHT");
 	public var BACK:DeviceButton = new DeviceButton("BACK");
+
+	private static var instances:Array<Keyboard> = new Array();
+	public static function get(n: Int = 0):Keyboard
+	{
+		if (instances[n] == null)
+		{
+			return instances[n] = new Keyboard(n);
+		}
+		return instances[n];
+	}
 	
-
-
-	public function new(?n:Int=0)
+	private function new(?n:Int=0)
 	{
 		buttons = [Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M,
 					BACKSPACE,TAB,ENTER,SHIFT,CTRL,ALT,CHAR,ESC,DEL,UP,DOWN,LEFT,RIGHT,BACK];
@@ -185,7 +193,7 @@ class Keyboard
 	
 
 	
-	public function update()
+	public function update():Void
 	{
 		for (btn in buttons)
 		{
