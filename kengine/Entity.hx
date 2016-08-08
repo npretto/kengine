@@ -100,7 +100,7 @@ class Entity
 		{
 			return rotation;
 		}else{
-			return (parent.rotation+rotation)%360;
+			return (parent.worldRotation+rotation)%360;
 		}
 	}
 	
