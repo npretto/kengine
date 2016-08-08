@@ -54,4 +54,24 @@ class TestEntity {
 		
 	}
 	
+	public function testScalingEntities():Void
+	{
+		var parent = new Entity();
+		var child = new Entity();
+		var grandChild = new Entity();
+		
+		parent.addChild(child);
+		child.addChild(grandChild);
+		
+		parent.pos = new Vector2(100, 100);
+		parent.scale = new Vector2(0.5, 0.25);
+		
+		child.pos = new Vector2(200, 400);
+		child.scale = new Vector2(0.25, 0.125);
+		
+		grandChild.pos = new Vector2(400*2, 800*4);
+		
+		Assert.same(new Vector2(300, 300), grandChild.worldPos);
+	}
+	
 }

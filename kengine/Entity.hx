@@ -20,7 +20,8 @@ class Entity
 	public var worldPos(get, null):Vector2;
 	public var rotation : Float = 0; // degrees
 	public var worldRotation(get, null):Float;
-	
+	public var scale:Vector2 = new Vector2(1,1);
+	public var worldScale(get, null):Vector2;
 	public var name:String = "";
 
 	public function new() 
@@ -87,7 +88,9 @@ class Entity
 		{
 			return pos;
 		}else{
-			return parent.worldPos.add(pos.rotate(parent.worldRotation));
+			var tmpLocal = pos.rotate(parent.worldRotation);
+			var tmpScale = parent.worldScale;
+			return parent.worldPos.add(new Vector2(tmpLocal.x*tmpScale.x, tmpLocal.y*tmpScale.y));
 		}
 	}
 	
@@ -98,6 +101,16 @@ class Entity
 			return rotation;
 		}else{
 			return (parent.rotation+rotation)%360;
+		}
+	}
+	
+	private function get_worldScale():Vector2
+	{
+		if (parent == null)
+		{
+			return scale;
+		}else{
+			return new Vector2(scale.x * parent.worldScale.x, scale.y * parent.worldScale.y);
 		}
 	}
 	
