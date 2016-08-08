@@ -23,4 +23,10 @@ class Drawable extends Component
 	{
 		return null;
 	}
+	
+	public function centerOffset()
+	{
+		this.offset = new Vector2(size.x / 2, size.y / 2);
+		return this;
+	}
 }
