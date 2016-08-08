@@ -14,6 +14,7 @@ class Drawable extends Component
 	public var flipX : Bool;
 	public var flipY : Bool;
 	public var scale : Vector2;
+	public var worldScale(get, null):Vector2;
 	public var size(get, null) : Vector2;
 	var image : Image;
 	
@@ -29,4 +30,10 @@ class Drawable extends Component
 		this.offset = new Vector2(size.x / 2, size.y / 2);
 		return this;
 	}
+	
+	private function get_worldScale():Vector2
+	{
+		return new Vector2(scale.x * owner.worldScale.x, scale.y * owner.worldScale.y);
+	}
+	
 }

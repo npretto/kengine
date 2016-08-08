@@ -27,10 +27,15 @@ class ImageSprite extends Drawable
 		//frameBuffer.g2.transformation = FastMatrix3.translation(-offset.x, -offset.y);
 		frameBuffer.g2.transformation = FastMatrix3.translation(0, 0);
 		// rotation
-		frameBuffer.g2.rotate(MathTools.toRadians(owner.rotation), owner.worldPos.x, owner.worldPos.y);
+		frameBuffer.g2.rotate(MathTools.toRadians(owner.worldRotation), owner.worldPos.x, owner.worldPos.y);
 		
 		// draw the image scaled
-		frameBuffer.g2.drawScaledImage(image, owner.worldPos.x - (offset.x * scale.x), owner.worldPos.y - (offset.y * scale.y), size.x * scale.x, size.y * scale.y);
+		var worldScale = this.worldScale; //cache
+		frameBuffer.g2.drawScaledImage(	image,
+										owner.worldPos.x - (offset.x * worldScale.x), 
+										owner.worldPos.y - (offset.y * worldScale.y),
+										size.x * worldScale.x,
+										size.y * worldScale.y);
 	}
 	
 	override public function get_size() : Vector2
