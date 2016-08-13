@@ -23,12 +23,6 @@ class ImageSprite extends Drawable
 	{
 		super.render(frameBuffer);
 		frameBuffer.g2.color = Color.White;
-		// reset the transformation matrix, that will be used by drawImage
-		//frameBuffer.g2.transformation = FastMatrix3.translation(-offset.x, -offset.y);
-		frameBuffer.g2.transformation = FastMatrix3.translation(0, 0);
-		// rotation
-		frameBuffer.g2.rotate(MathTools.toRadians(owner.worldRotation), owner.worldPos.x, owner.worldPos.y);
-		
 		// draw the image scaled
 		var worldScale = this.worldScale; //cache
 		frameBuffer.g2.drawScaledImage(	image,
