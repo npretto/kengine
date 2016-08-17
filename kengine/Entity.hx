@@ -16,9 +16,10 @@ class Entity
 	var children:List<Entity> = new List();
 	var components : List<Component> = new List();
 	var parent:Entity = null;
-	public var pos:Vector2 = new Vector2();
+	public var pos(default, set):Vector2 = new Vector2();
 	public var worldPos(get, null):Vector2;
-	public var rotation : Float = 0; // degrees
+	@:isVar
+	public var rotation(get, set) : Float = 0; // degrees
 	public var worldRotation(get, null):Float;
 	public var scale:Vector2 = new Vector2(1,1);
 	public var worldScale(get, null):Vector2;
@@ -81,7 +82,22 @@ class Entity
 		}
 	}
 	
-		
+	public function set_pos(p : Vector2):Vector2
+	{
+		pos = p;
+		return pos;
+	}
+
+	public function get_rotation():Float {
+		return this.rotation;
+	}
+
+	public function set_rotation(r : Float):Float
+	{
+		this.rotation = r;
+		return this.rotation;
+	}
+
 	private function get_worldPos():Vector2
 	{
 		if (parent == null)
