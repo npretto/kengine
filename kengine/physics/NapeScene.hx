@@ -7,6 +7,7 @@ import nape.space.Space;
 class NapeScene extends Scene
 {
 	public var space: Space;
+	public var pausedPhysics:Bool = false;
 	
 	public function new() 
 	{
@@ -17,7 +18,9 @@ class NapeScene extends Scene
 	override public function update()
 	{
 		super.update();
-		space.step(App.dt);
+		if (!pausedPhysics){
+			space.step(App.dt);
+		}
 	}
 	
 }
