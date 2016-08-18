@@ -1,4 +1,5 @@
 package kengine;
+import haxe.io.Bytes;
 import kengine.Component;
 import kha.Framebuffer;
 import kha.math.FastMatrix4;
@@ -10,7 +11,7 @@ using kengine.MathTools;
  * ...
  * @author npretto
  */
-class Entity
+class Entity implements kha.network.Entity implements kha.network.Sync
 {
 	
 	var children:List<Entity> = new List();

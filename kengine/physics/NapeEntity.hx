@@ -7,7 +7,7 @@ import nape.space.Space;
 
 class NapeEntity extends Entity
 {
-
+	@replicated
 	public var body : Body;
 	public var space : Space;
 
