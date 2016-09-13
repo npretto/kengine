@@ -39,6 +39,10 @@ class App
 	}
 
 	function update(): Void {
+		for (id in inputDevices)
+		{
+			id.update();
+		}
 		scene.update();
 		
 	}
